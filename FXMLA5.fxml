@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.net.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="pane" prefHeight="400.0" prefWidth="600.0" 
+            styleClass="mainFxmlClass" 
+            xmlns:fx="http://javafx.com/fxml/1" 
+            fx:controller="ananabhi.FXMLA5Controller">
+    <top>
+        <VBox id="vbox">
+            <MenuBar fx:id="menuBar">
+                <menus>
+                    <Menu text="_File">
+                        <items>
+                            <MenuItem text="E_xit" onAction="#exit"/>
+                        </items>
+                    </Menu>
+                </menus>
+            </MenuBar>
+            <Label fx:id="title" text="Pizzeria Assignment" alignment="CENTER" maxWidth="Infinity"/>
+        </VBox>
+    </top>
+    
+    <center>
+        <VBox>
+            <children>
+                <HBox fx:id="center" spacing="10" alignment="CENTER">
+                    <children>
+                        <VBox fx:id="centerPane1" spacing="10" >
+                            <fx:define>
+                                <ToggleGroup fx:id="size" />
+                            </fx:define>
+                            <children>
+                                <Label text = "Pizza Size" />
+                                <RadioButton fx:id="radio1" text="Small" 
+                                             onAction = "#getActions" 
+                                             toggleGroup = "$size"/>
+                                <RadioButton fx:id="radio2" text="Medium"
+                                             onAction = "#getActions"  
+                                             toggleGroup = "$size" />
+                                <RadioButton fx:id="radio3" text="Large"
+                                             onAction = "#getActions"
+                                             toggleGroup = "$size"/>
+                                <TextField fx:id = "txt1" 
+                                           text="Number of Pizza" />
+                            </children>
+                        </VBox>
+                        <VBox fx:id = "centerPane2" spacing = "10" >
+                            <children>
+                                <Label text = "Toppings" />
+                                <CheckBox fx:id="checkBox1" text="Cheese"
+                                          onAction = "#action"/>
+                                <CheckBox fx:id="checkBox2" text="Pepperoni" 
+                                          onAction = "#action"/>
+                                <CheckBox fx:id="checkBox3" text="Mushrooms" 
+                                          onAction = "#action" />
+                                <CheckBox fx:id="checkBox4" text="Olives" 
+                                          onAction = "#action" />
+                            </children>
+                        </VBox>
+                        <VBox fx:id = "centerPane3" spacing = "10" >
+                            <fx:define>
+                                <ToggleGroup fx:id="drinkType" />
+                            </fx:define>
+                            <children>
+                                <Label text = "Drinks" />
+                                <RadioButton fx:id="radio4" text="Coke" 
+                                             onAction = "#getAction" 
+                                             toggleGroup="$drinkType"/>
+                                <RadioButton fx:id="radio5" text="Juice" 
+                                             onAction = "#getAction"
+                                             toggleGroup="$drinkType"/>
+                                <RadioButton fx:id="radio6" 
+                                             text="Chocolate Milk"
+                                             onAction = "#getAction" 
+                                             toggleGroup="$drinkType"/>
+                                <TextField fx:id="txt2" text="Number of Drinks" 
+                                           GridPane.columnIndex="1" 
+                                           GridPane.rowIndex="6"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </children>
+        
+            <children>
+                <Label fx:id = "lbl" text = "Order Summary" 
+                       alignment = "CENTER" />
+                <TextArea fx:id = "txt" />
+            </children>
+        </VBox>    
+    </center> 
+    
+    <bottom>
+        <HBox fx:id = "bottomPane" spacing = "10" alignment = "CENTER">
+            <children>
+                <Button fx:id = "btnOkay" text="_OK" />
+                <Button fx:id = "btnCancel" text="_Cancel" onAction="#cancel"/>
+            </children>
+        </HBox>
+    </bottom>
+    
+    <stylesheets>
+        <URL value="@fxmla5.css"/>
+    </stylesheets>
+</BorderPane>
